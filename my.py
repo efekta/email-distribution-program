@@ -35,7 +35,7 @@ PASSWORD = os.getenv("PASSWORD")
 
 email_from = LOGIN
 
-email_to=['cool.efekta@yandex.ru','efekta9@gmail.com','lily9897@mail.ru']
+email_to = ['efekta9@gmail.com', 'ptashkina.liliya@yandex.ru']
 
 message = '''From: {}
 To: {}
@@ -47,5 +47,6 @@ message = message.encode("UTF-8")
 
 server = smtplib.SMTP_SSL('smtp.yandex.ru:465')
 server.login(LOGIN, PASSWORD)
-server.sendmail(email_from, email_to[0:-1], message)
+server.sendmail(email_from, email_to, message)
 server.quit()
+
