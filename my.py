@@ -26,15 +26,15 @@ text_mail = '''
 
 text_mail = text_mail.replace('%website%', 'dvmn.org').replace('%friend_name%', friend_name).replace('%my_name%', my_name)
 
-server = smtplib.SMTP_SSL('smtp.yandex.ru:465')
 
-login = os.getenv("login")
-password = os.getenv("password")
-# email_to = os.getenv("email_to")
-server.login(login, password)
 
-email_from = login
-# email_to = login
+LOGIN = os.getenv("LOGIN")
+PASSWORD = os.getenv("PASSWORD")
+
+
+
+email_from = LOGIN
+
 email_to=['cool.efekta@yandex.ru','efekta9@gmail.com','lily9897@mail.ru']
 
 message = '''From: {}
@@ -42,10 +42,10 @@ To: {}
 Subject: Важно!
 Content-Type: text/plain; charset="UTF-8";
 
-{}'''.format(login, login, text_mail)
+{}'''.format(LOGIN, LOGIN, text_mail)
 message = message.encode("UTF-8")
 
 server = smtplib.SMTP_SSL('smtp.yandex.ru:465')
-server.login(login, password)
+server.login(LOGIN, PASSWORD)
 server.sendmail(email_from, email_to[0:-1], message)
 server.quit()
