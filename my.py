@@ -3,7 +3,6 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-
 friend_name = 'друг'
 my_name = 'Лиля'
 text_mail = '''
@@ -31,13 +30,12 @@ server = smtplib.SMTP_SSL('smtp.yandex.ru:465')
 
 login = os.getenv("login")
 password = os.getenv("password")
-
+# email_to = os.getenv("email_to")
 server.login(login, password)
 
-
-
 email_from = login
-email_to = login
+# email_to = login
+email_to=['cool.efekta@yandex.ru','efekta9@gmail.com','lily9897@mail.ru']
 
 message = '''From: {}
 To: {}
@@ -49,5 +47,5 @@ message = message.encode("UTF-8")
 
 server = smtplib.SMTP_SSL('smtp.yandex.ru:465')
 server.login(login, password)
-server.sendmail(email_from, email_to, message)
+server.sendmail(email_from, email_to[0:-1], message)
 server.quit()
