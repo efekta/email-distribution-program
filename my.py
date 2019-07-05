@@ -35,14 +35,14 @@ PASSWORD = os.getenv("PASSWORD")
 
 email_from = LOGIN
 
-email_to = ['efekta9@gmail.com', 'ptashkina.liliya@yandex.ru']
+email_to = ['efekta9@gmail.com', 'ptashkina.liliya@yandex.ru', 'lily9897@mail.ru']
 
 message = '''From: {}
 To: {}
 Subject: Важно!
 Content-Type: text/plain; charset="UTF-8";
 
-{}'''.format(LOGIN, LOGIN, text_mail)
+{}'''.format(LOGIN, email_to, text_mail)
 message = message.encode("UTF-8")
 
 server = smtplib.SMTP_SSL('smtp.yandex.ru:465')
